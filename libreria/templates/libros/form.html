@@ -1,0 +1,24 @@
+<form enctype="multipart/form-data" method="post">
+  {% csrf_token %}
+  {% for campo in formulario %}
+      {% if campo.name == 'genero' %}
+          <div class="mb-3">
+              <label class="form-check-label">{{ campo.label }}</label>
+              {{ campo }}
+          </div>
+      {% else %}
+          <div class="mb-3"> 
+              <label class="form-check-label">{{ campo.label }} </label>
+              <input 
+                  type="{{ campo.field.widget.input_type }}"
+                  class="form-control"
+                  name="{{ campo.name }}"
+                  id=""
+                  value="{{ campo.value|default:'' }}"
+              > 
+              <div class=col-12 help-text>{{ campo.errors }}</div>     
+          </div>
+      {% endif %}
+  {% endfor %}
+  <input name="" id="" class="btn btn-primary" type="submit" value="Enviar">
+</form>
