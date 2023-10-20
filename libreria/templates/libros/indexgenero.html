@@ -1,0 +1,50 @@
+{% extends 'layout.html' %} 
+
+{% block titulo%} INDEX LIBROS {% endblock %}
+
+{% block section %}
+   <div class="card text-start">     
+     <div class="card-body">
+       <h4 class="card-title">Generos</h4>
+       <p class="card-text">
+
+        <a name="" id="" class="btn btn-success" href="{% url 'creargenero'%}" role="button">Crear Genero</a>
+         
+        <div class="table-responsive">
+           <table class="table table-striped
+           table-borderless
+           table-primary
+           align-middle">
+              <thead class="table-light">
+               
+                 <tr>
+                    <th>Identificador</th>
+                    <th>nombre</th>
+                    <th>opciones</th>
+                 </tr>
+                 </thead>
+                 <tbody class="table-group-divider">
+                    {% for item in generos %}
+                    <tr class="table-primary">
+                       <td>{{ item.id }}</td>
+                       <td>{{ item.nombre }}</td>
+                       <td>                        
+                          <a name="" id="" class="btn btn-primary" href="{% url 'editargenero' id=item.id %}"role="button">Editar</a>
+                          <a name="" id="" class="btn btn-danger" href="#" role="button">Eliminar</a>
+                       </td>
+                    </tr>
+                     {% endfor %}
+                 </tbody>
+                 <tfoot>
+                    
+                 </tfoot>
+           </table>
+        </div>
+        
+
+       
+
+       </p>
+     </div>
+   </div>
+{% endblock %}

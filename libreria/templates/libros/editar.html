@@ -1,0 +1,17 @@
+{% extends 'layout.html' %} 
+
+{% block titulo%} EDITAR LIBROS {% endblock %}
+
+{% block section %}
+<div class="card text-start">
+
+   <div class="card-body">
+     
+     <p class="card-text">
+
+       {% include 'libros/form.html' %}
+
+     </p>
+   </div>
+ </div>
+{% endblock %}
